@@ -5,6 +5,8 @@ class TestPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    TextStyle textStyle = TextStyle(fontSize: 20,color: Colors.greenAccent);
+
     return MaterialApp(
       title: '第一个Flutter页面',
       theme: ThemeData(
@@ -17,7 +19,7 @@ class TestPage extends StatelessWidget{
           alignment: Alignment.center,
           child: Column(
             children: <Widget>[
-              Text('我是一个Text文本')
+              Text('我是一个Text文本',style: textStyle,)
             ],
           ),
         ),
