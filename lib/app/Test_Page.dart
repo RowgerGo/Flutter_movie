@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
+import 'package:flutter_app/app/main.dart';
 
 class TestPage extends StatelessWidget{
   @override
@@ -8,12 +8,12 @@ class TestPage extends StatelessWidget{
     TextStyle textStyle = TextStyle(fontSize: 20,color: Colors.greenAccent);
 
     return MaterialApp(
-      title: '第一个Flutter页面',
+      title: '梦回',
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
       home:Scaffold(
-        appBar: AppBar(title: Text('第一个Flutter页面')),
+        appBar: AppBar(title: Text('梦回')),
         body: Container(
           decoration: BoxDecoration(color: Colors.white),
           alignment: Alignment.center,

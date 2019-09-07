@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Test_Page.dart';
+import 'splash.dart';
 
-import 'data_type.dart';
+import 'package:flutter_app/app/HomePage.dart';
+import 'package:flutter_app/app/data_type.dart';
 
-void main() => runApp(TestPage());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -12,9 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter必备',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryIconTheme: const IconThemeData(color: Colors.white),
+        brightness: Brightness.light,
+        primaryColor: new Color.fromARGB(255, 0, 215, 195),
+        accentColor: Colors.cyan[300]
       ),
-      home: MyHomePage(title: 'Flutter必备'),
+      home: SplashPage(),
     );
   }
 }
