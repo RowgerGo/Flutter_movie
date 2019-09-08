@@ -18,41 +18,41 @@ class home_viewState extends State<home_view>{
   List<Movice> _movice = [];
 
   @override
-  void initSate(){
-    print("====================");
+  void initState(){
+    print("========initSate============");
     super.initState();
     getMoviceList();
   }
   void getMoviceList(){
-    print("====================");
     setState(() {
       _movice=Movice.fromJson("""
          {
           "list":[
             {
               "title":"电锯惊魂",
-              "size":"1000M",
+              "size":"980MB",
               "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
             },
             {
               "title":"死神来了",
-              "size":"1000M",
+              "size":"760MB",
               "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
             },
             {
               "title":"鬼来电",
-              "size":"1000M",
+              "size":"1360MB",
               "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com",
-            },
+              "img":"http://www.baidu.com"
+            }
           ]
         }
       """);
     });
-
-    print(_movice.length);
+    print("====================");
+    var len = _movice.length;
+    print('===========_movice.length$len');
   }
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class home_viewState extends State<home_view>{
   }
 //  @override
 //  Widget build(BuildContext context) {
-//    // TODO: implement build
+//
 //    return Scaffold(
 //      body: Center(
 //        child: Column(
@@ -84,19 +84,20 @@ class home_viewState extends State<home_view>{
     Movice movice=_movice[index];
     var moviceItem=new InkWell(
       onTap: (){
-        showDialog(context: context,child: AlertDialog(
-          content: Text("敬请期待!d"),
-        ));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>video_player_view()));
+//        showDialog(context: context,child: AlertDialog(
+//          content: Text("敬请期待!d"),
+//        ));
       },
       child:MovieListItem(movice) ,
     );
-
+    return moviceItem;
   }
   _item(context,String title,page,String routeName){
     return Container(
       child: RaisedButton(
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>page));
+
         },
         child: Text(title),
       ),

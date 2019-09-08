@@ -7,7 +7,8 @@ class MovieListItem extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+     /// TODO: implement build
+
     return Padding(
       padding: const EdgeInsets.only(top: 3.0,left: 5.0,right: 5.0,bottom: 3.0),
       child: SizedBox(
@@ -27,7 +28,7 @@ class MovieListItem extends StatelessWidget{
                           padding: const EdgeInsets.only(
                             top: 10,left: 10,bottom: 5
                           ),
-                          child: Text(movice.title),
+                          child: Text(movice.title,style: TextStyle(color: Colors.blueAccent,fontSize: 24.0),),
                         ),
                         Expanded(
                           child: Column(
