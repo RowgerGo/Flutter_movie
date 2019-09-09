@@ -9,9 +9,9 @@ class home_view extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    print("====================");
     return home_viewState();
   }
+
 }
 
 class home_viewState extends State<home_view>{
@@ -19,7 +19,6 @@ class home_viewState extends State<home_view>{
 
   @override
   void initState(){
-    print("========initSate============");
     super.initState();
     getMoviceList();
   }
@@ -31,12 +30,72 @@ class home_viewState extends State<home_view>{
             {
               "title":"电锯惊魂",
               "size":"980MB",
-              "url":"http://www.baidu.com",
+              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
               "img":"http://www.baidu.com"
             },
             {
               "title":"死神来了",
               "size":"760MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
+              "url":"http://www.baidu.com",
+              "img":"http://www.baidu.com"
+            },
+            {
+              "title":"鬼来电",
+              "size":"1360MB",
               "url":"http://www.baidu.com",
               "img":"http://www.baidu.com"
             },

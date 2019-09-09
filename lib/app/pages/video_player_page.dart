@@ -20,10 +20,13 @@ class _video_player_viewState extends State<video_player_view>{
   VideoPlayerController _videoPlayerController1;
   VideoPlayerController _videoPlayerController2;
   ChewieController _chewieController;
+  double _voice=0.2;
+  double value = 0.0;
 
   @override
   void initState(){
     super.initState();
+    //http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv
     _videoPlayerController1 = VideoPlayerController.network(
         'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
     _videoPlayerController2 = VideoPlayerController.network(
@@ -34,6 +37,7 @@ class _video_player_viewState extends State<video_player_view>{
       autoPlay: true,
       looping: true
     );
+    _chewieController.setVolume(_voice);
   }
   @override
   void dispose() {
@@ -46,13 +50,50 @@ class _video_player_viewState extends State<video_player_view>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: Center(
-        child:Center(
-          child: Chewie(
-            controller: _chewieController,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Center(
+              child: Chewie(
+                controller: _chewieController,
+              ),
+            ),
           ),
-        )
-
+          SliderTheme(
+            data: SliderTheme.of(context).copyWith(
+              //已拖动的颜色
+              activeTrackColor: Colors.greenAccent,
+              //未拖动的颜色
+              inactiveTrackColor: Colors.green,
+              //提示进度的气泡的背景色
+              valueIndicatorColor: Colors.green,
+              //提示进度的气泡文本的颜色
+              valueIndicatorTextStyle: TextStyle(
+                color:Colors.white,
+              ),
+              //滑块中心的颜色
+              thumbColor: Colors.blueAccent,
+              //滑块边缘的颜色
+              overlayColor: Colors.white,
+              //divisions对进度线分割后，断续线中间间隔的颜色
+              inactiveTickMarkColor: Colors.white,
+            ),
+            child: Slider(
+                value: value,
+                label: '$_voice',
+                min: 0.0,
+                max: 1000.0,
+                divisions: 5,
+                onChanged: (val){
+                  setState(() {
+                    value = val.floorToDouble();//转化成double
+                    _voice=value/1000;
+                  });
+                  _chewieController.setVolume(_voice);
+                }
+            ),
+          )
+        ],
       ),
     );
   }
