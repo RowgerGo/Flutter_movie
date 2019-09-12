@@ -28,6 +28,7 @@ dependencies:
   path_provider: ^1.3.0
   simple_permissions: ^0.1.9
   shared_preferences: ^0.5.3+4
+  web_socket_channel: ^1.0.15
 
 dev_dependencies:
   flutter_test:

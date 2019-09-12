@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'splash.dart';
+import 'package:flutter_app/splash.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:flutter_app/app/HomePage.dart';
-import 'package:flutter_app/app/data_type.dart';
+import 'package:flutter_app/HomePage.dart';
+import 'package:flutter_app/data_type.dart';
 
 //void main() => runApp(MyApp());
 void main() {

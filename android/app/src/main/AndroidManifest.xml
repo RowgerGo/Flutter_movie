@@ -12,7 +12,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_app"
+        android:label="花哥电影"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'video_player_page.dart';
-import 'package:flutter_app/app/model/movie.dart';
-import 'package:flutter_app/app/item/movielist_item.dart';
+import 'package:flutter_app/model/movie.dart';
+import 'package:flutter_app/item/movielist_item.dart';
 
 class home_view extends StatefulWidget{
 
@@ -36,73 +36,13 @@ class home_viewState extends State<home_view>{
             {
               "title":"死神来了",
               "size":"760MB",
-              "url":"http://www.baidu.com",
+              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
               "img":"http://www.baidu.com"
             },
             {
               "title":"鬼来电",
               "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
-              "img":"http://www.baidu.com"
-            },
-            {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://www.baidu.com",
+              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
               "img":"http://www.baidu.com"
             }
           ]
@@ -143,7 +83,7 @@ class home_viewState extends State<home_view>{
     Movice movice=_movice[index];
     var moviceItem=new InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>video_player_view()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>video_player_view(movice:movice,isLocalMovice: false,)));
 //        showDialog(context: context,child: AlertDialog(
 //          content: Text("敬请期待!d"),
 //        ));

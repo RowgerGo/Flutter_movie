@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app/model/movie.dart';
+import 'package:flutter_app/model/movie.dart';
 
 class MovieListItem extends StatelessWidget{
   final Movice movice;

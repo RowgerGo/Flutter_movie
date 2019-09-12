@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_app/model/movie.dart';
+import 'package:flutter_app/pages/video_player_page.dart';
 
 class local_video_page extends StatefulWidget {
   @override
@@ -16,8 +18,10 @@ class local_video_pageState extends State<local_video_page> {
   ScrollController controller = ScrollController();
   Directory parentDir;
   List<double> position = [];
+  List<String> _postfix_name = ['mp4','avi','rmvb','mkv','wmv','mpeg'];
   List<FileSystemEntity> files = [];
   List<FileSystemEntity> files_img = [];
+
 
   int count = 0; // 记录当前文件夹中以 . 开头的文件和文件夹
 
@@ -26,7 +30,7 @@ class local_video_pageState extends State<local_video_page> {
     //String sDCardDir = (await getExternalStorageDirectory()).path;
     super.initState();
 
-    getLocal();
+    //getLocal();
     getAllImg('/storage/emulated/0/');
   }
 
@@ -155,6 +159,8 @@ class local_video_pageState extends State<local_video_page> {
             initDirectory(file.path);
             jumpToPosition(true);
           } else {
+            Movice movice=Movice(title: file.path, size: file.path, url: file.path, img: file.path);
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>video_player_view(movice:movice,isLocalMovice: true,)));
             // openFile(file.path);
           }
         });
@@ -199,11 +205,10 @@ class local_video_pageState extends State<local_video_page> {
     for(int i=0;i<_files.length;i++){
       var isFile = FileSystemEntity.isFileSync(_files[i].path);
       if (isFile){
-        print("是文件");
-        print(_files[i]);
-        files.add(_files[i]);
+        if(isMovice(_files[i])){
+          files.add(_files[i]);
+        }
       }else{
-        print("不是文件");
         //print(_files[i]);
         getAllImg(_files[i].path);
       }
@@ -211,6 +216,19 @@ class local_video_pageState extends State<local_video_page> {
   }
 
   isMovice(FileSystemEntity file){
+    String _file_name=file.path;
+
+    List<String> _f = _file_name.split(".");
+    String postfix = _f.last;
+
+    if(_postfix_name.contains(postfix)){
+      print(_file_name);
+      print(_f.last);
+      return true;
+    }else{
+      return false;
+    }
+
     //String file_type=File(file.resolveSymbolicLinksSync()).
   }
 
