@@ -21,8 +21,6 @@ class person_view extends StatefulWidget {
 class person_viewState extends State<person_view> {
 
 
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -45,7 +43,9 @@ class person_viewState extends State<person_view> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => local_video_page()));
+                        builder: (context) => local_video_page()
+                    )
+                );
               },
               child: Text('查看本地缓存视频'),
             )
