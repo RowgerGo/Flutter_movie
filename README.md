@@ -19,3 +19,5 @@
 "message": "message"
 }
 ```
+### 状态管理```provider```
+- https://pub.dev/packages/provider#-changelog-tab-

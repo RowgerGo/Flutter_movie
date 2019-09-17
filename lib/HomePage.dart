@@ -70,8 +70,10 @@ class _HomePageState extends State<HomePage>
                   _currentPage=tabBodies[_currentIndex];
                 });
               },
-              items: bottomTabs),
-          body: _currentPage),
+              items: bottomTabs
+          ),
+          body: _currentPage
+      ),
     );
   }
 }

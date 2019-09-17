@@ -4,12 +4,16 @@ import 'package:flutter_app/splash.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:simple_permissions/simple_permissions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:provider/provider.dart';
 import 'package:flutter_app/HomePage.dart';
 import 'package:flutter_app/data_type.dart';
 
+import 'package:flutter_app/provider/counter.dart';
+
 //void main() => runApp(MyApp());
 void main() {
+  final counter = CounterModel();
+  final textSize = 48;
 
   String sDCardDir;
 
@@ -45,29 +49,48 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({@required this.sDCardDir});
 
+
   final String sDCardDir;
-  // This widget is the root of your application.
+  //  This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter必备',
-      theme: ThemeData(
-        primaryIconTheme: const IconThemeData(color: Colors.white),
-        brightness: Brightness.light,
-        primaryColor: new Color.fromARGB(255, 0, 215, 195),
-        accentColor: Colors.cyan[300]
-      ),
-      home: SplashPage(),
+    return MultiProvider(
+       providers: [
+         ChangeNotifierProvider(builder: (_)=>CounterModel(),)
+       ],
+       child: Consumer<CounterModel>(
+         builder: (context,counter,_){
+           return MaterialApp(
+             supportedLocales: const [Locale('en')],
+             localizationsDelegates: [
+               DefaultMaterialLocalizations.delegate,
+               DefaultWidgetsLocalizations.delegate,
+             ],
+             home: SplashPage(),
+           );
+         },
+       ),
     );
+
+
+
+    //    return MaterialApp(
+    //      title: 'Flutter必备',
+    //      theme: ThemeData(
+    //        primaryIconTheme: const IconThemeData(color: Colors.white),
+    //        brightness: Brightness.light,
+    //        primaryColor: new Color.fromARGB(255, 0, 215, 195),
+    //        accentColor: Colors.cyan[300]
+    //      ),
+    //      home: SplashPage(),
+    //    );
+
   }
 }
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }

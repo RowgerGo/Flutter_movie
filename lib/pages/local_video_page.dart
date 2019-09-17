@@ -54,7 +54,7 @@ class local_video_pageState extends State<local_video_page> {
       appBar: AppBar(
         title: Text(
           '本地视频',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         elevation: 0.4,
         centerTitle: true,
@@ -200,13 +200,15 @@ class local_video_pageState extends State<local_video_page> {
     //var directory = Directory('/storage/emulated/0/');
     var directory = Directory(path);
     _files.clear();
-    _files = directory.listSync();
-    print(_files.length);
+    _files = await directory.listSync();
+    print(_files);
     for(int i=0;i<_files.length;i++){
-      var isFile = FileSystemEntity.isFileSync(_files[i].path);
+      var isFile = await FileSystemEntity.isFileSync(_files[i].path);
       if (isFile){
         if(isMovice(_files[i])){
           files.add(_files[i]);
+          print('添加电影文件:'+_files[i].toString());
+          print(files);
         }
       }else{
         //print(_files[i]);
@@ -222,8 +224,6 @@ class local_video_pageState extends State<local_video_page> {
     String postfix = _f.last;
 
     if(_postfix_name.contains(postfix)){
-      print(_file_name);
-      print(_f.last);
       return true;
     }else{
       return false;
@@ -231,6 +231,8 @@ class local_video_pageState extends State<local_video_page> {
 
     //String file_type=File(file.resolveSymbolicLinksSync()).
   }
+  
+
 
   getFileSize(FileSystemEntity file) {
     int fileSize = File(file.resolveSymbolicLinksSync()).lengthSync();
