@@ -20,10 +20,3 @@ class Message {
         'message': message,
       };
 }
-
-//{
-//"room": "123",
-//"type": "1",
-//"username": "username",
-//"message": "message"
-//}

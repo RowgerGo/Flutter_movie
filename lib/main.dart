@@ -8,11 +8,12 @@ import 'package:provider/provider.dart';
 import 'package:flutter_app/HomePage.dart';
 import 'package:flutter_app/data_type.dart';
 
-import 'package:flutter_app/provider/counter.dart';
+import 'provider/index.dart' show Store;
+
 
 //void main() => runApp(MyApp());
 void main() {
-  final counter = CounterModel();
+
   final textSize = 48;
 
   String sDCardDir;
@@ -49,27 +50,20 @@ void main() {
 class MyApp extends StatelessWidget {
   MyApp({@required this.sDCardDir});
 
-
   final String sDCardDir;
   //  This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-       providers: [
-         ChangeNotifierProvider(builder: (_)=>CounterModel(),)
-       ],
-       child: Consumer<CounterModel>(
-         builder: (context,counter,_){
-           return MaterialApp(
-             supportedLocales: const [Locale('en')],
-             localizationsDelegates: [
-               DefaultMaterialLocalizations.delegate,
-               DefaultWidgetsLocalizations.delegate,
-             ],
-             home: SplashPage(),
-           );
-         },
-       ),
+       return Store.init(
+         context: context,
+         child:  MaterialApp(
+           supportedLocales: const [Locale('en')],
+           localizationsDelegates: [
+             DefaultMaterialLocalizations.delegate,
+             DefaultWidgetsLocalizations.delegate,
+           ],
+           home: SplashPage(),
+       )
     );
 
 

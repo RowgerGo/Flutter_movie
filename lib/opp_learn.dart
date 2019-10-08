@@ -1,4 +1,5 @@
 class Student extends Person{
+
   String _scholl;
   String city;
   String country;
@@ -9,8 +10,10 @@ class Student extends Person{
 
 ///定义一个Dart类
 class Person {
+
   String name;
   int age;
+
   Person(this.name,this.age);
   ///重写父类方法
   @override
@@ -18,4 +21,5 @@ class Person {
     // TODO: implement toString
     return 'name:$name,age:$age';
   }
+
 }

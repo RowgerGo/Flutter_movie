@@ -92,6 +92,7 @@ class home_viewState extends State<home_view>{
     );
     return moviceItem;
   }
+
   _item(context,String title,page,String routeName){
     return Container(
       child: RaisedButton(
@@ -102,4 +103,6 @@ class home_viewState extends State<home_view>{
       ),
     );
   }
+
+
 }

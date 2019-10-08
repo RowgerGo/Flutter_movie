@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_app/model/movie.dart';
 import 'package:flutter_app/pages/video_player_page.dart';
+import 'package:flutter_app/provider/index.dart' show Store,CounterModel,LocalVideoStore;
+
 
 class local_video_page extends StatefulWidget {
   @override
@@ -14,6 +16,8 @@ class local_video_page extends StatefulWidget {
 }
 
 class local_video_pageState extends State<local_video_page> {
+  BuildContext widgetCtx;
+
   String _sDCardDir;
   ScrollController controller = ScrollController();
   Directory parentDir;
@@ -27,11 +31,27 @@ class local_video_pageState extends State<local_video_page> {
 
   @override
   void initState() {
+    Store.value<LocalVideoStore>(context,listen: false).clear();
     //String sDCardDir = (await getExternalStorageDirectory()).path;
+    getAllImg('/storage/emulated/0/BaiduNetdisk/');
     super.initState();
 
+
     //getLocal();
-    getAllImg('/storage/emulated/0/');
+    //getAllImg('/storage/emulated/0/Android/data/');
+
+  }
+  @override
+  didChangeDependencies() {
+    super.didChangeDependencies();
+
+  }
+  @override
+  void dispose(){
+
+
+    super.dispose();
+
   }
 
   Future<void> getLocal() async {
@@ -44,18 +64,17 @@ class local_video_pageState extends State<local_video_page> {
       parentDir = Directory(sDCardDir);
     });
     //initDirectory(sDCardDir);
-    initDirectory('/storage/emulated/0/');
+    //initDirectory('/storage/emulated/0/');
+    initDirectory('/storage/emulated/0/Android/data/');
   }
 
   @override
   Widget build(BuildContext context) {
+    widgetCtx=context;
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          '本地视频',
-          style: TextStyle(color: Colors.white),
-        ),
+        title: Text("本地视频"),
         elevation: 0.4,
         centerTitle: true,
       ),
@@ -63,10 +82,12 @@ class local_video_pageState extends State<local_video_page> {
       body: Scrollbar(child: ListView.builder(
         physics: BouncingScrollPhysics(),
         controller: controller,
-        itemCount: files.length != 0 ? files.length : 1,
+        itemCount: Store.value<LocalVideoStore>(context).list.length != 0 ? Store.value<LocalVideoStore>(context).list.length : 1,
         itemBuilder: (BuildContext context, int index) {
-          if (files.length != 0){
-            return buildListViewItem(files[index]);
+          print("==================");
+          print(Store.value<LocalVideoStore>(context).list.length);
+          if (Store.value<LocalVideoStore>(context).list.length != 0){
+            return buildListViewItem(Store.value<LocalVideoStore>(context).list[index]);
           }else{
             return Padding(
               padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2 - MediaQuery.of(context).padding.top - 56.0),
@@ -79,6 +100,7 @@ class local_video_pageState extends State<local_video_page> {
       )),
     );
   }
+
 
   // 计算文件夹内 文件、文件夹的数量，以 . 开头的除外
   removePointBegin(Directory path) {
@@ -195,41 +217,46 @@ class local_video_pageState extends State<local_video_page> {
   }
 
   Future<void> getAllImg(path) async{
+   // Store.value<LocalVideoStore>(context).clear();
     List<FileSystemEntity> _files = [];
+    List<FileSystemEntity> _movefiles = [];
     List<FileSystemEntity> _img_files = [];
     //var directory = Directory('/storage/emulated/0/');
     var directory = Directory(path);
     _files.clear();
     _files = await directory.listSync();
-    print(_files);
+
     for(int i=0;i<_files.length;i++){
       var isFile = await FileSystemEntity.isFileSync(_files[i].path);
       if (isFile){
         if(isMovice(_files[i])){
-          files.add(_files[i]);
-          print('添加电影文件:'+_files[i].toString());
-          print(files);
+          //_movefiles.add(_files[i]);
+         Store.value<LocalVideoStore>(context).add(_files[i]);
+         print('添加电影文件:'+_files[i].toString());
+//          print(files);
         }
       }else{
         //print(_files[i]);
         getAllImg(_files[i].path);
       }
     }
+// print("_movefiles_movefiles_movefiles_movefiles");
+// print(_movefiles.length);
+// Store.value<LocalVideoStore>(context).set(_movefiles);
   }
 
   isMovice(FileSystemEntity file){
-    String _file_name=file.path;
+      String _file_name=file.path;
 
-    List<String> _f = _file_name.split(".");
-    String postfix = _f.last;
+      List<String> _f = _file_name.split(".");
+      String postfix = _f.last;
 
-    if(_postfix_name.contains(postfix)){
-      return true;
-    }else{
-      return false;
-    }
-
-    //String file_type=File(file.resolveSymbolicLinksSync()).
+      if(_postfix_name.contains(postfix)){
+        return true;
+      }else{
+        return false;
+      }
+     // String file_type=File(file.resolveSymbolicLinksSync()).
   }
   
 

@@ -65,6 +65,10 @@ class _video_player_viewState extends State<video_player_view> {
         looping: true);
     _chewieController.setVolume(_voice);
 
+    initWebSocket();
+  }
+
+  void initWebSocket() {
     _channel.stream.listen((message) {
       //  channel.sink.add("received!");
       try {
@@ -75,7 +79,11 @@ class _video_player_viewState extends State<video_player_view> {
         print(e);
       }
       print(message);
-    });
+    },onError: (error)  {
+      print(error);
+    },cancelOnError: true);
+
+
   }
 
   // 处理收到消息之后的操作

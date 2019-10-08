@@ -21,3 +21,4 @@
 ```
 ### 状态管理```provider```
 - https://pub.dev/packages/provider#-changelog-tab-
+- 示例教程：  https://juejin.im/post/5d2c19c6e51d4558936aa11c#heading-8
