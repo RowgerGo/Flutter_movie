@@ -28,22 +28,22 @@ class home_viewState extends State<home_view>{
          {
           "list":[
             {
-              "title":"电锯惊魂",
-              "size":"980MB",
-              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
-              "img":"http://www.baidu.com"
+              "title":"迪克·朗之死 / 迪克朗之死",
+              "size":"1.12 GB",
+              "url":"magnet:?xt=urn:btih:44c6a4e3b90d3bc364d7d5f5a19d92e1a100cbcb&dn=[电影天堂www.dy2018.com]迪克·朗之死BD中英双字.mp4",
+              "img":"https://img.18qweasd.com/d/file/html/gndy/jddy/2019-10-12/047805e037b6470c0e87ec467efe97bb.jpg"
             },
             {
-              "title":"死神来了",
-              "size":"760MB",
-              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
-              "img":"http://www.baidu.com"
+              "title":"迪克·朗之死 / 迪克朗之死",
+              "size":"1.12 GB",
+              "url":"magnet:?xt=urn:btih:44c6a4e3b90d3bc364d7d5f5a19d92e1a100cbcb&dn=[电影天堂www.dy2018.com]迪克·朗之死BD中英双字.mp4",
+              "img":"https://img.18qweasd.com/d/file/html/gndy/jddy/2019-10-12/047805e037b6470c0e87ec467efe97bb.jpg"
             },
             {
-              "title":"鬼来电",
-              "size":"1360MB",
-              "url":"http://144.34.214.193/media/[电影天堂www.dy2018.com]猖獗HD高清韩语中字.mkv",
-              "img":"http://www.baidu.com"
+              "title":"迪克·朗之死 / 迪克朗之死",
+              "size":"1.12 GB",
+              "url":"magnet:?xt=urn:btih:44c6a4e3b90d3bc364d7d5f5a19d92e1a100cbcb&dn=[电影天堂www.dy2018.com]迪克·朗之死BD中英双字.mp4",
+              "img":"https://img.18qweasd.com/d/file/html/gndy/jddy/2019-10-12/047805e037b6470c0e87ec467efe97bb.jpg"
             }
           ]
         }
